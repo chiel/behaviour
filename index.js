@@ -1,9 +1,9 @@
 'use strict';
 
-var indexOf = require('mout/array/indexOf'),
-	isArray = require('mout/lang/isArray'),
-	behaviors = [],
-	cache = {};
+var indexOf = require('mout/array/indexOf');
+var isArray = require('mout/lang/isArray');
+var behaviors = [];
+var cache = {};
 
 /**
  * Register a new behavior
@@ -36,12 +36,12 @@ var execute = function(){
 				cache[b.attribute].push(els[x]);
 
 				options = {};
-				try {
+				try{
 					options = JSON.parse(els[x].getAttribute(b.attribute));
-				} catch(e){}
+				} catch (e){}
 
 				if (!isArray(options)){
-					options = [options];
+					options = [ options ];
 				}
 				for (y = 0; y < options.length; y++){
 					new b.Fn(els[x], options[y]);
