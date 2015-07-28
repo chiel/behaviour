@@ -2,29 +2,29 @@
 
 var indexOf = require('mout/array/indexOf');
 var isArray = require('mout/lang/isArray');
-var behaviors = [];
+var behaviours = [];
 var cache = {};
 
 /**
- * Register a new behavior
+ * Register a new behaviour
  * @param {String} attribute
  * @param {Function} Fn
  */
 var register = function(attribute, Fn){
-	behaviors.push({
+	behaviours.push({
 		attribute: attribute,
 		Fn: Fn
 	});
 };
 
 /**
- * Execute all cached behaviors
+ * Execute all cached behaviours
  */
 var execute = function(){
-	var i, len = behaviors.length, b, els, x, options, y;
+	var i, len = behaviours.length, b, els, x, options, y;
 
 	for (i = 0; i < len; i++){
-		b = behaviors[i];
+		b = behaviours[i];
 		if (!cache[b.attribute]){
 			cache[b.attribute] = [];
 		}
