@@ -35,9 +35,9 @@ var execute = function(){
 				if (indexOf(cache[b.attribute], els[x]) != -1) continue;
 				cache[b.attribute].push(els[x]);
 
-				options = {};
+				options = els[x].getAttribute(b.attribute);
 				try{
-					options = JSON.parse(els[x].getAttribute(b.attribute));
+					options = JSON.parse(options);
 				} catch (e){}
 
 				if (!isArray(options)){
